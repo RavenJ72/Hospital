@@ -19,7 +19,8 @@ public class Patient {
     @Column(name = "insurance_number", nullable = false, length = 20)
     protected String insuranceNumber;
 
-    @OneToOne(mappedBy = "patient")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;
 
     private void setInsuranceNumber(String insuranceNumber) {

@@ -23,12 +23,18 @@ public class Doctor {
 
     @Column(name = "salary", columnDefinition = "numeric(10,2)", nullable = false)
     private BigDecimal salary;
+
     @Column(name = "specialization", length = 50, nullable = false)
     private String specialization;
+
     @Column(name = "license_number", length = 20, nullable = false)
     private String licenseNumber;
-    @OneToOne(mappedBy = "doctor")
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;
+
+
 
     private void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;

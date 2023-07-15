@@ -24,13 +24,12 @@ public class Person {
     @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
     private Contact contact;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id")
+    @OneToOne(mappedBy = "person")
     private Doctor doctor;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
+    @OneToOne(mappedBy = "person")
     private Patient patient;
+
 
     @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
