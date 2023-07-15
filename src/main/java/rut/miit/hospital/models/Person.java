@@ -31,4 +31,12 @@ public abstract class Person {
     @Column(name = "date_of_birth", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
+
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }
