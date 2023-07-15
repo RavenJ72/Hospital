@@ -1,6 +1,5 @@
 package rut.miit.hospital.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +11,7 @@ import java.sql.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "persons")
 @Getter
 @Setter
@@ -22,15 +21,20 @@ public abstract class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "first_name", columnDefinition = "varchar(50)", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
+    private Contact contact;
+
+    @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
 
-    @Column(name = "last_name", columnDefinition = "varchar(50)", nullable = false)
+    @Column(name = "last_name", length = 50, nullable = false)
     private String lastName;
 
     @Column(name = "date_of_birth", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
+
 
     private void setId(int id) {
         this.id = id;

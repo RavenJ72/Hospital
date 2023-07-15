@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "patients")
 public class Patient extends Person{
 
-    @Column(name="insurance_number",nullable = false)
+    @Column(name="insurance_number",nullable = false, length = 20)
     protected String insuranceNumber;
 
-    public void setInsuranceNumber(String insuranceNumber) {
+    private void setInsuranceNumber(String insuranceNumber) {
         this.insuranceNumber = insuranceNumber;
 
     }
