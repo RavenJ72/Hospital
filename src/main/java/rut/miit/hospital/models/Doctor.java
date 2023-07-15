@@ -1,4 +1,4 @@
 package rut.miit.hospital.models;
 
-public abstract class Person {
+public class Doctor extends Person{
 }
