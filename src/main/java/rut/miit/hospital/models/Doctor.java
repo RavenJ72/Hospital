@@ -18,11 +18,11 @@ import java.math.BigDecimal;
 @Setter
 public class Doctor extends Person{
 
-    @Column(name = "salary", columnDefinition = "numeric(10,2)")
+    @Column(name = "salary", columnDefinition = "numeric(10,2)", nullable = false)
     private BigDecimal salary;
-    @Column(name="specialization", columnDefinition = "varchar(50)", nullable = false)
+    @Column(name="specialization", length = 50, nullable = false)
     private String specialization;
-    @Column(name="licenseNumber", columnDefinition = "varchar(20)", nullable = false)
+    @Column(name="license_number", length = 20, nullable = false)
     private String licenseNumber;
 
     private void setLicenseNumber(String licenseNumber) {
