@@ -1,8 +1,6 @@
 package rut.miit.hospital.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,19 +9,26 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name ="persons")
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Doctor extends Person{
+@Table(name = "doctors")
+public class Doctor {
+    @Id
+    @Column(name = "doctor_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "salary", columnDefinition = "numeric(10,2)", nullable = false)
     private BigDecimal salary;
-    @Column(name="specialization", length = 50, nullable = false)
+    @Column(name = "specialization", length = 50, nullable = false)
     private String specialization;
-    @Column(name="license_number", length = 20, nullable = false)
+    @Column(name = "license_number", length = 20, nullable = false)
     private String licenseNumber;
+    @OneToOne(mappedBy = "doctor")
+    private Person person;
 
     private void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;

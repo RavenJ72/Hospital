@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-
 @Setter
 @Getter
 @NoArgsConstructor
@@ -24,4 +23,7 @@ public class Contact {
 
     @Column(name = "address",length = 100, nullable = false)
     private String address;
+
+    @OneToOne(mappedBy = "contact")
+    private Person person;
 }

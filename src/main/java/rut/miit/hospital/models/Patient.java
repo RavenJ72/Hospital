@@ -10,13 +10,22 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @Table(name = "patients")
-public class Patient extends Person{
+public class Patient {
+    @Id
+    @Column(name = "patient_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @Column(name="insurance_number",nullable = false, length = 20)
+    @Column(name = "insurance_number", nullable = false, length = 20)
     protected String insuranceNumber;
+
+    @OneToOne(mappedBy = "patient")
+    private Person person;
 
     private void setInsuranceNumber(String insuranceNumber) {
         this.insuranceNumber = insuranceNumber;
 
     }
+
+
 }

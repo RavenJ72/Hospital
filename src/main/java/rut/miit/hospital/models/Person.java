@@ -11,11 +11,10 @@ import java.sql.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name = "persons")
 @Getter
 @Setter
-public abstract class Person {
+@Table(name = "persons")
+public class Person {
     @Id
     @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,14 @@ public abstract class Person {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
     private Contact contact;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id")
+    private Doctor doctor;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
+    private Patient patient;
 
     @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
