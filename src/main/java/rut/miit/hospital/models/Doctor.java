@@ -34,8 +34,6 @@ public class Doctor {
     @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;
 
-
-
     private void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;
     }

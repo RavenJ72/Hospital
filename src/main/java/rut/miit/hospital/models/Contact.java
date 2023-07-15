@@ -26,4 +26,8 @@ public class Contact {
 
     @OneToOne(mappedBy = "contact")
     private Person person;
+
+    private void setId(int id) {
+        this.id = id;
+    }
 }

@@ -20,6 +20,15 @@ public class Visit{
     @EmbeddedId
     private VisitKey id;
 
+    @Column(name = "diagnosis",columnDefinition = "text")
+    private String diagnosis;
+
+    @Column(name = "visit_date", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date visitDate;
+
+    @Column(name = "symptoms", columnDefinition = "text")
+    private String symptoms;
     @ManyToOne(cascade = CascadeType.ALL)
     @MapsId("doctorId")
     @JoinColumn(name = "doctor_id")
@@ -30,13 +39,15 @@ public class Visit{
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @Column(name = "diagnosis",columnDefinition = "text")
-    private String diagnosis;
+    private void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
 
-    @Column(name = "visit_date", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date visitDate;
+    private void setVisitDate(Date visitDate) {
+        this.visitDate = visitDate;
+    }
 
-    @Column(name = "symptoms", columnDefinition = "text")
-    private String symptoms;
+    private void setSymptoms(String symptoms) {
+        this.symptoms = symptoms;
+    }
 }

@@ -20,6 +20,19 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "first_name", length = 50, nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", length = 50, nullable = false)
+    private String lastName;
+
+    @Column(name = "sex", length = 1, nullable = false)
+    private String sex;
+
+    @Column(name = "date_of_birth", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
     private Contact contact;
@@ -29,18 +42,6 @@ public class Person {
 
     @OneToOne(mappedBy = "person")
     private Patient patient;
-
-
-    @Column(name = "first_name", length = 50, nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", length = 50, nullable = false)
-    private String lastName;
-
-    @Column(name = "date_of_birth", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
-
 
     private void setId(int id) {
         this.id = id;
