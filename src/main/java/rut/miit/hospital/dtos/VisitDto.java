@@ -10,7 +10,7 @@ import java.sql.Date;
 @Getter
 @Setter
 public class VisitDto {
-    public VisitKey visitKey;
+    public VisitKeyDto visitKey;
     public String diagnosis;
     public Date visitDate;
     public String symptoms;

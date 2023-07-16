@@ -15,5 +15,5 @@ public class PersonDto {
     public String lastName;
     public String sex;
     public Date dateOfBirth;
-    public Contact contact;
+    public ContactDto contact;
 }

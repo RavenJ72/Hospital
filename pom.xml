@@ -45,6 +45,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+
     </dependencies>
     <build>
         <plugins>
