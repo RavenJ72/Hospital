@@ -10,8 +10,6 @@ import lombok.Setter;
 import java.io.Serializable;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Setter
 @Getter
 @Embeddable
 public class VisitKey implements Serializable {
@@ -21,4 +19,15 @@ public class VisitKey implements Serializable {
 
     @Column(name = "patient_id")
     private Integer patientId;
+
+    protected VisitKey() {
+    }
+
+    private void setDoctorId(Integer doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    private void setPatientId(Integer patientId) {
+        this.patientId = patientId;
+    }
 }

@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
+
 import java.sql.Date;
-import java.util.List;
+
 
 @Entity
 @NoArgsConstructor
@@ -41,6 +41,10 @@ public class Visit{
 
     private void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
+    }
+
+    private void setId(VisitKey id) {
+        this.id = id;
     }
 
     private void setVisitDate(Date visitDate) {

@@ -6,4 +6,5 @@ import rut.miit.hospital.models.Contact;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
+
 }
