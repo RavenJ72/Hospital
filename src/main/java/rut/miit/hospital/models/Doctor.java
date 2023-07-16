@@ -19,7 +19,7 @@ public class Doctor {
     @Id
     @Column(name = "doctor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "salary", columnDefinition = "numeric(10,2)", nullable = false)
     private BigDecimal salary;
