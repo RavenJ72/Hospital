@@ -2,26 +2,13 @@ package rut.miit.hospital.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
+@Setter
 public class ContactDto {
-    private Integer id;
-    private String phone;
-    private String address;
-
-    protected ContactDto(){
-
-    }
-    private void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public Integer id;
+    public String phone;
+    public String address;
 }
