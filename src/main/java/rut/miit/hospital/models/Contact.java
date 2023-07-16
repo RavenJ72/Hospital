@@ -24,7 +24,7 @@ public class Contact {
     @Column(name = "address",length = 100, nullable = false)
     private String address;
 
-    @OneToOne(mappedBy = "contact")
+    @OneToOne(mappedBy = "contact", targetEntity = Person.class)
     private Person person;
 
     private void setId(int id) {
