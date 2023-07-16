@@ -1,10 +1,10 @@
 package rut.miit.hospital.services;
 
-import rut.miit.hospital.models.Contact;
+import rut.miit.hospital.dtos.ContactDto;
 import java.util.List;
 
 public interface ContactService<ID>{
-    Contact addNewContact(Contact contact);
+    ContactDto addNewContact(ContactDto contactDto);
 
-    List<Contact> getAllContacts();
+    List<ContactDto> getAllContacts();
 }

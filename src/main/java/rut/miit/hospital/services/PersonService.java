@@ -1,10 +1,11 @@
 package rut.miit.hospital.services;
 
+import rut.miit.hospital.dtos.PersonDto;
 import rut.miit.hospital.models.Person;
 import java.util.List;
 
 public interface PersonService<ID>{
-    Person addNewPerson(Person person);
+    PersonDto addNewPerson(PersonDto personDto);
 
-    List<Person> getAllPersons();
+    List<PersonDto> getAllPersons();
 }

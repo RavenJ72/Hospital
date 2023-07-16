@@ -1,10 +1,13 @@
 package rut.miit.hospital.services;
 
-import rut.miit.hospital.models.Patient;
+import rut.miit.hospital.dtos.PatientDto;
 import java.util.List;
+import java.util.Optional;
 
 public interface PatientService<ID>{
-    Patient addNewPatient(Patient patient);
+    Optional<Object[]> findContactByPatientId(Integer patientId);
 
-    List<Patient> getAllPatients();
+    PatientDto addNewPatient(PatientDto patientDto);
+
+    List<PatientDto> getAllPatients();
 }
