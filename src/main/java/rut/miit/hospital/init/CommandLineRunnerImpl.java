@@ -16,12 +16,14 @@ import java.sql.Date;
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
 
-    @Autowired
-    private PersonService personService;
-    //вопрос насчет интерфейса
-
-    @Autowired
+    private PersonService personService;//вопрос насчет интерфейса
     private ContactService contactService;
+
+    public CommandLineRunnerImpl(PersonService personService, ContactService contactService) {
+        this.personService = personService;
+        this.contactService = contactService;
+    }
+
 
 
 
