@@ -82,81 +82,62 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         PersonDto patientPerson14 = new PersonDto(0, "Emma", "Martin", "f", new Date(93, 4, 30), patientContact14);
         PersonDto patientPerson15 = new PersonDto(0, "Grace", "Thompson", "f", new Date(90, 11, 1), patientContact15);
 
-        DoctorDetailsDto doctor1 = new DoctorDetailsDto(0, doctorPerson1, "LIC00001", new BigDecimal(1000), "Pediatrician");
-        DoctorDetailsDto doctor2 = new DoctorDetailsDto(0, doctorPerson2, "LIC00002", new BigDecimal(1200), "Cardiologist");
-        DoctorDetailsDto doctor3 = new DoctorDetailsDto(0, doctorPerson3, "LIC00003", new BigDecimal(1100), "Neurologist");
-        DoctorDetailsDto doctor4 = new DoctorDetailsDto(0, doctorPerson4, "LIC00004", new BigDecimal(1500), "Orthopedist");
-        DoctorDetailsDto doctor5 = new DoctorDetailsDto(0, doctorPerson5, "LIC00005", new BigDecimal(900), "Oncologist");
-
-        PatientDetailsDto patient1 = new PatientDetailsDto(0, patientPerson1, "INS123456789");
-        PatientDetailsDto patient2 = new PatientDetailsDto(0, patientPerson2, "INS987654321");
-        PatientDetailsDto patient3 = new PatientDetailsDto(0, patientPerson3, "INS456789123");
-        PatientDetailsDto patient4 = new PatientDetailsDto(0, patientPerson4, "INS321987654");
-        PatientDetailsDto patient5 = new PatientDetailsDto(0, patientPerson5, "INS789123456");
-        PatientDetailsDto patient6 = new PatientDetailsDto(0, patientPerson6, "INS654321987");
-        PatientDetailsDto patient7 = new PatientDetailsDto(0, patientPerson7, "INS147258369");
-        PatientDetailsDto patient8 = new PatientDetailsDto(0, patientPerson8, "INS369258147");
-        PatientDetailsDto patient9 = new PatientDetailsDto(0, patientPerson9, "INS258369147");
-        PatientDetailsDto patient10 = new PatientDetailsDto(0, patientPerson10, "INS741852963");
-        PatientDetailsDto patient11 = new PatientDetailsDto(0, patientPerson11, "INS963852741");
-        PatientDetailsDto patient12 = new PatientDetailsDto(0, patientPerson12, "INS852741963");
-        PatientDetailsDto patient13 = new PatientDetailsDto(0, patientPerson13, "INS159263847");
-        PatientDetailsDto patient14 = new PatientDetailsDto(0, patientPerson14, "INS753159862");
-        PatientDetailsDto patient15 = new PatientDetailsDto(0, patientPerson15, "INS864159273");
-
-        visitService.addNewVisit(new VisitDto(0, "Common Cold", new Date(2023, 01, 02), "Fever, Cough", doctor1, patient1));
-        visitService.addNewVisit(new VisitDto(0, "Common Cold", new Date(2023, 01, 05), "Fever, Cough, Sneezing", doctor1, patient2));
-        visitService.addNewVisit(new VisitDto(0, "Asthma", new Date(2023, 01, 07), "Difficulty Breathing", doctor1, patient3));
-        visitService.addNewVisit(new VisitDto(0, "Heart Arrhythmia", new Date(2023, 01, 10), "Palpitations", doctor2, patient4));
-        visitService.addNewVisit(new VisitDto(0, "Coronary Artery Disease", new Date(2023, 01, 12), "Chest Pain", doctor2, patient5));
-        visitService.addNewVisit(new VisitDto(0, "Heart Failure", new Date(2023, 01, 14), "Fatigue, Shortness of Breath", doctor2, patient6));
-        visitService.addNewVisit(new VisitDto(0, "Epilepsy", new Date(2023, 01, 16), "Seizures", doctor3, patient7));
-        visitService.addNewVisit(new VisitDto(0, "Stroke", new Date(2023, 01, 18), "Sudden numbness, Confusion", doctor3, patient8));
-        visitService.addNewVisit(new VisitDto(0, "Arthritis", new Date(2023, 01, 20), "Joint Pain", doctor4, patient9));
-        visitService.addNewVisit(new VisitDto(0, "Arthritis", new Date(2023, 01, 21), "Joint Pain, Swelling", doctor4, patient10));
-        visitService.addNewVisit(new VisitDto(0, "Lung Cancer", new Date(2023, 01, 24), "Persistent cough, Chest pain", doctor5, patient11));
-        visitService.addNewVisit(new VisitDto(0, "Breast Cancer", new Date(2023, 01, 25), "Lump in the breast, Change in breast shape", doctor5, patient12));
-        visitService.addNewVisit(new VisitDto(0, "Common Cold", new Date(2023, 01, 27), "Fever, Cough, Sore throat", doctor1, patient1));
-        visitService.addNewVisit(new VisitDto(0, "Heart Arrhythmia", new Date(2023, 01, 28), "Dizziness, Shortness of Breath", doctor2, patient4));
-        visitService.addNewVisit(new VisitDto(0, "Stroke", new Date(2023, 01, 29), "Sudden numbness, Difficulty walking", doctor3, patient8));
-        visitService.addNewVisit(new VisitDto(0, "Arthritis", new Date(2023, 01, 30), "Joint Pain, Stiffness", doctor4, patient10));
-        visitService.addNewVisit(new VisitDto(0, "Lung Cancer", new Date(2023, 02, 02), "Weight loss, Shortness of breath", doctor5, patient11));
-        visitService.addNewVisit(new VisitDto(0, "Flu", new Date(2023, 02, 05), "Fever, Cough, Body Aches", doctor1, patient13));
-        visitService.addNewVisit(new VisitDto(0, "Asthma", new Date(2023, 02, 06), "Shortness of Breath, Chest Tightness", doctor1, patient14));
-        visitService.addNewVisit(new VisitDto(0, "Asthma", new Date(2023, 02, 02), "Wheezing, Coughing", doctor1, patient15));
-        visitService.addNewVisit(new VisitDto(0, "Hypertension", new Date(2023, 02, 10), "Headache, Shortness of Breath", doctor2, patient6));
-        visitService.addNewVisit(new VisitDto(0, "Coronary Artery Disease", new Date(2023, 02, 12), "Chest Pain, Nausea", doctor2, patient7));
-        visitService.addNewVisit(new VisitDto(0, "Heart Arrhythmia", new Date(2023, 02, 14), "Fainting, Rapid Heartbeat", doctor2, patient8));
-        visitService.addNewVisit(new VisitDto(0, "Migraine", new Date(2023, 02, 16), "Severe Headache, Nausea", doctor3, patient9));
-        visitService.addNewVisit(new VisitDto(0, "Alzheimer's Disease", new Date(2023, 02, 18), "Memory Loss, Confusion", doctor3, patient10));
-        visitService.addNewVisit(new VisitDto(0, "Parkinson's Disease", new Date(2023, 02, 20), "Tremor, Slowed Movement", doctor3, patient11));
-        visitService.addNewVisit(new VisitDto(0, "Prostate Cancer", new Date(2023, 03, 01), "Frequent Urination, Blood in Semen", doctor5, patient15));
-        visitService.addNewVisit(new VisitDto(0, "Lung Cancer", new Date(2023, 03, 03), "Chest Pain, Hoarseness", doctor5, patient1));
-        visitService.addNewVisit(new VisitDto(0, "Colon Cancer", new Date(2023, 03, 05), "Changes in Bowel Habits, Rectal Bleeding", doctor5, patient2));
-        visitService.addNewVisit(new VisitDto(0, "Osteoporosis", new Date(2023, 02, 22), "Back Pain, Loss of Height", doctor4, patient12));
-        visitService.addNewVisit(new VisitDto(0, "Fracture", new Date(2023, 02, 24), "Severe Pain, Swelling", doctor4, patient13));
-        visitService.addNewVisit(new VisitDto(0, "Fracture", new Date(2023, 02, 26), "Inability to Move the Limb, Deformity", doctor4, patient14));
+        doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson1, "LIC00001", new BigDecimal(1000), "Pediatrician"));
+        doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson2, "LIC00002", new BigDecimal(1200), "Cardiologist"));
+        doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson3, "LIC00003", new BigDecimal(1100), "Neurologist"));
+        doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson4, "LIC00004", new BigDecimal(1500), "Orthopedist"));
+        doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson5, "LIC00005", new BigDecimal(900), "Oncologist"));
 
 
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson1, "INS123456789"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson2, "INS987654321"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson3, "INS456789123"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson4, "INS321987654"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson5, "INS789123456"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson6, "INS654321987"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson7, "INS147258369"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson8, "INS369258147"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson9, "INS258369147"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson10, "INS741852963"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson11, "INS963852741"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson12, "INS852741963"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson13, "INS159263847"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson14, "INS753159862"));
+        patientService.addNewPatient(new PatientDetailsDto(0, patientPerson15, "INS864159273"));
 
-//        ContactDto cdDoctor = new ContactDto(0,"+8925","ул.Пушкина 8к3");
-//        ContactDto cdPatient = new ContactDto(0,"+278112","ул.Дубровка 87к4");
-//
-//        PersonDto pdDoctor = new PersonDto(0,"Антон","Иванов","m",new Date(1980,05,15),cdDoctor);
-//        PersonDto pdPatient = new PersonDto(0,"Галина","Сергеевна","w",new Date(1976,01,01),cdPatient);
-//
-//
-//        PatientDetailsDto patientDetailsDto = new PatientDetailsDto(0,pdPatient,"abc123");
-//        DoctorDetailsDto doctorDetailsDto = new DoctorDetailsDto(0,pdDoctor,"00000",new BigDecimal(1000),"pediatrician");
-////
-//        VisitDto visitDto = new VisitDto(0,"amnesia",new Date(2023,01,02),"нарушения ориентации",doctorDetailsDto,patientDetailsDto);
-//
-//        visitService.addNewVisit(visitDto);
-//
-//
-//        VisitDto visitDto2 = new VisitDto(0,"головная боль",new Date(1900,01,02),"дичайший мега понос",doctorService.getDoctorById(1),patientService.getPatientById(1));
-//
-//        visitService.addNewVisit(visitDto2);
+        visitService.addNewVisit(new VisitDto(0, "Common Cold", new Date(123, 0, 2), "Fever, Cough", doctorService.getDoctorById(1), patientService.getPatientById(1)));
+        visitService.addNewVisit(new VisitDto(0, "Common Cold", new Date(123, 0, 5), "Fever, Cough, Sneezing", doctorService.getDoctorById(1), patientService.getPatientById(2)));
+        visitService.addNewVisit(new VisitDto(0, "Asthma", new Date(123, 0, 7), "Difficulty Breathing", doctorService.getDoctorById(1), patientService.getPatientById(3)));
+        visitService.addNewVisit(new VisitDto(0, "Heart Arrhythmia", new Date(123, 0, 10), "Palpitations", doctorService.getDoctorById(2), patientService.getPatientById(4)));
+        visitService.addNewVisit(new VisitDto(0, "Coronary Artery Disease", new Date(123, 0, 12), "Chest Pain", doctorService.getDoctorById(2), patientService.getPatientById(5)));
+        visitService.addNewVisit(new VisitDto(0, "Heart Failure", new Date(123, 0, 14), "Fatigue, Shortness of Breath", doctorService.getDoctorById(2), patientService.getPatientById(6)));
+        visitService.addNewVisit(new VisitDto(0, "Epilepsy", new Date(123, 0, 16), "Seizures", doctorService.getDoctorById(3), patientService.getPatientById(7)));
+        visitService.addNewVisit(new VisitDto(0, "Stroke", new Date(123, 0, 18), "Sudden numbness, Confusion", doctorService.getDoctorById(3), patientService.getPatientById(8)));
+        visitService.addNewVisit(new VisitDto(0, "Arthritis", new Date(123, 0, 20), "Joint Pain", doctorService.getDoctorById(4), patientService.getPatientById(9)));
+        visitService.addNewVisit(new VisitDto(0, "Arthritis", new Date(123, 0, 21), "Joint Pain, Swelling", doctorService.getDoctorById(4), patientService.getPatientById(10)));
+        visitService.addNewVisit(new VisitDto(0, "Lung Cancer", new Date(123, 0, 24), "Persistent cough, Chest pain", doctorService.getDoctorById(5), patientService.getPatientById(11)));
+        visitService.addNewVisit(new VisitDto(0, "Breast Cancer", new Date(123, 0, 25), "Lump in the breast, Change in breast shape", doctorService.getDoctorById(5), patientService.getPatientById(12)));
+        visitService.addNewVisit(new VisitDto(0, "Common Cold", new Date(123, 0, 27), "Fever, Cough, Sore throat", doctorService.getDoctorById(1), patientService.getPatientById(1)));
+        visitService.addNewVisit(new VisitDto(0, "Heart Arrhythmia", new Date(123, 0, 28), "Dizziness, Shortness of Breath", doctorService.getDoctorById(2), patientService.getPatientById(4)));
+        visitService.addNewVisit(new VisitDto(0, "Stroke", new Date(123, 0, 29), "Sudden numbness, Difficulty walking", doctorService.getDoctorById(3), patientService.getPatientById(8)));
+        visitService.addNewVisit(new VisitDto(0, "Arthritis", new Date(123, 0, 30), "Joint Pain, Stiffness", doctorService.getDoctorById(4), patientService.getPatientById(10)));
+        visitService.addNewVisit(new VisitDto(0, "Lung Cancer", new Date(123, 1, 2), "Weight loss, Shortness of breath", doctorService.getDoctorById(5), patientService.getPatientById(11)));
+        visitService.addNewVisit(new VisitDto(0, "Flu", new Date(123, 1, 5), "Fever, Cough, Body Aches", doctorService.getDoctorById(1), patientService.getPatientById(13)));
+        visitService.addNewVisit(new VisitDto(0, "Asthma", new Date(123, 1, 6), "Shortness of Breath, Chest Tightness", doctorService.getDoctorById(1), patientService.getPatientById(14)));
+        visitService.addNewVisit(new VisitDto(0, "Asthma", new Date(123, 1, 2), "Wheezing, Coughing", doctorService.getDoctorById(1), patientService.getPatientById(15)));
+        visitService.addNewVisit(new VisitDto(0, "Hypertension", new Date(123, 1, 10), "Headache, Shortness of Breath", doctorService.getDoctorById(2), patientService.getPatientById(6)));
+        visitService.addNewVisit(new VisitDto(0, "Coronary Artery Disease", new Date(123, 1, 12), "Chest Pain, Nausea", doctorService.getDoctorById(2), patientService.getPatientById(7)));
+        visitService.addNewVisit(new VisitDto(0, "Heart Arrhythmia", new Date(123, 1, 14), "Fainting, Rapid Heartbeat", doctorService.getDoctorById(2), patientService.getPatientById(8)));
+        visitService.addNewVisit(new VisitDto(0, "Migraine", new Date(123, 1, 16), "Severe Headache, Nausea", doctorService.getDoctorById(3), patientService.getPatientById(9)));
+        visitService.addNewVisit(new VisitDto(0, "Alzheimer's Disease", new Date(123, 1, 18), "Memory Loss, Confusion", doctorService.getDoctorById(3), patientService.getPatientById(10)));
+        visitService.addNewVisit(new VisitDto(0, "Parkinson's Disease", new Date(123, 1, 20), "Tremor, Slowed Movement", doctorService.getDoctorById(3), patientService.getPatientById(11)));
+        visitService.addNewVisit(new VisitDto(0, "Prostate Cancer", new Date(123, 2, 1), "Frequent Urination, Blood in Semen", doctorService.getDoctorById(5), patientService.getPatientById(15)));
+        visitService.addNewVisit(new VisitDto(0, "Lung Cancer", new Date(123, 2, 3), "Chest Pain, Hoarseness", doctorService.getDoctorById(5), patientService.getPatientById(1)));
+        visitService.addNewVisit(new VisitDto(0, "Colon Cancer", new Date(123, 2, 5), "Changes in Bowel Habits, Rectal Bleeding", doctorService.getDoctorById(5), patientService.getPatientById(2)));
+        visitService.addNewVisit(new VisitDto(0, "Osteoporosis", new Date(123, 1, 22), "Back Pain, Loss of Height", doctorService.getDoctorById(4), patientService.getPatientById(12)));
+        visitService.addNewVisit(new VisitDto(0, "Fracture", new Date(123, 1, 24), "Severe Pain, Swelling", doctorService.getDoctorById(4), patientService.getPatientById(13)));
+        visitService.addNewVisit(new VisitDto(0, "Fracture", new Date(123, 1, 26), "Inability to Move the Limb, Deformity", doctorService.getDoctorById(4), patientService.getPatientById(14)));
+
     }
 
 }
