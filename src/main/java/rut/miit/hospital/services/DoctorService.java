@@ -1,5 +1,6 @@
 package rut.miit.hospital.services;
 
+import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.DoctorDto;
 import rut.miit.hospital.models.Doctor;
 import java.util.List;

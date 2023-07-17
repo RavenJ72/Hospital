@@ -2,10 +2,11 @@ package rut.miit.hospital.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import rut.miit.hospital.models.VisitKey;
 import java.sql.Date;
-
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter

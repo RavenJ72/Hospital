@@ -20,8 +20,9 @@ public class PersonServiceImpl implements PersonService<Integer> {
 
 
     @Override
-    public PersonDto addNewPerson(PersonDto personDto) {
-        return null;
+    public PersonDto addNewPerson(PersonDto person) {
+        Person p = modelMapper.map(person,Person.class);
+        return modelMapper.map(personRepository.save(p),PersonDto.class);
     }
 
     @Override

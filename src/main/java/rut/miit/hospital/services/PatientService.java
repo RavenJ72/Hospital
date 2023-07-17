@@ -1,5 +1,6 @@
 package rut.miit.hospital.services;
 
+import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.PatientDto;
 import java.util.List;
 import java.util.Optional;
