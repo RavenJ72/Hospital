@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.ContactDto;
 import rut.miit.hospital.dtos.DoctorDetailsDto;
+import rut.miit.hospital.dtos.DoctorDto;
 import rut.miit.hospital.models.Doctor;
 import rut.miit.hospital.repositories.DoctorRepository;
 import rut.miit.hospital.services.DoctorService;
@@ -33,12 +34,22 @@ public class DoctorServiceImpl implements DoctorService<Integer> {
     }
 
     @Override
-    public List<DoctorDetailsDto> getAllDoctors() {
-        return doctorRepository.findAll().stream().map(p -> modelMapper.map(p, DoctorDetailsDto.class)).collect(Collectors.toList());
+    public List<DoctorDto> getAllDoctors() {
+        return doctorRepository.findAll().stream().map(p -> modelMapper.map(p, DoctorDto.class)).collect(Collectors.toList());
     }
 
     @Override
-    public DoctorDetailsDto findDoctorById(Integer doctorId) {
+    public DoctorDetailsDto updateDoctor(Integer doctorId, DoctorDetailsDto doctorDetailsDto) {
+        return null;
+    }
+
+    @Override
+    public void deleteDoctor(Integer doctorId) {
+        doctorRepository.deleteById(doctorId);
+    }
+
+    @Override
+    public DoctorDetailsDto getDoctorById(Integer doctorId) {
         return modelMapper.map(doctorRepository.findById(doctorId).orElseThrow(), DoctorDetailsDto.class);
     }
 }

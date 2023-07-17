@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.ContactDto;
-import rut.miit.hospital.dtos.PersonDto;
 import rut.miit.hospital.models.Contact;
 import rut.miit.hospital.repositories.ContactRepository;
 import rut.miit.hospital.services.ContactService;
@@ -14,8 +13,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class ContactServiceImpl implements ContactService<Integer> {
-
-
     @Autowired
     private ContactRepository contactRepository;
     @Autowired
@@ -23,11 +20,26 @@ public class ContactServiceImpl implements ContactService<Integer> {
 
     @Override
     public ContactDto addNewContact(ContactDto contactDto) {
-        return modelMapper.map(contactRepository.save(modelMapper.map(contactDto,Contact.class)),ContactDto.class);
+        return modelMapper.map(contactRepository.save(modelMapper.map(contactDto, Contact.class)), ContactDto.class);
     }
 
     @Override
     public List<ContactDto> getAllContacts() {
         return contactRepository.findAll().stream().map((c) -> modelMapper.map(c, ContactDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public ContactDto updateContact(Integer contactId, ContactDto contactDto) {
+        return null;
+    }
+
+    @Override
+    public void deleteContact(Integer contactId) {
+        contactRepository.deleteById(contactId);
+    }
+
+    @Override
+    public ContactDto getContactById(Integer contactId) {
+        return modelMapper.map(contactRepository.findById(contactId).orElseThrow(), ContactDto.class);
     }
 }
