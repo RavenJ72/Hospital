@@ -32,12 +32,10 @@ public class Visit{
     @Column(name = "symptoms", columnDefinition = "text")
     private String symptoms;
     @ManyToOne(cascade = CascadeType.ALL)
-    //@MapsId("doctorId")
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    //@MapsId("patientId")
     @JoinColumn(name = "patient_id")
     private Patient patient;
 

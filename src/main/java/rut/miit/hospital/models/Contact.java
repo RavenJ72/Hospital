@@ -30,4 +30,8 @@ public class Contact {
     private void setId(int id) {
         this.id = id;
     }
+
+    private void setPerson(Person person) {
+        this.person = person;
+    }
 }

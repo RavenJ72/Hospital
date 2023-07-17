@@ -28,4 +28,8 @@ public class Patient {
     private void setId(Integer id) {
         this.id = id;
     }
+
+    private void setPerson(Person person) {
+        this.person = person;
+    }
 }
