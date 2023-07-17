@@ -8,6 +8,7 @@ import rut.miit.hospital.models.Person;
 import rut.miit.hospital.repositories.PersonRepository;
 import rut.miit.hospital.services.PersonService;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonServiceImpl implements PersonService<Integer> {
@@ -27,6 +28,6 @@ public class PersonServiceImpl implements PersonService<Integer> {
 
     @Override
     public List<PersonDto> getAllPersons() {
-        return null;
+        return personRepository.findAll().stream().map((p) -> modelMapper.map(p,PersonDto.class)).collect(Collectors.toList());
     }
 }

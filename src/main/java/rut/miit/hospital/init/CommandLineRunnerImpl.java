@@ -29,15 +29,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         seedData();
 
-        ContactDto cd = contactService.addNewContact(new ContactDto(0,"+8925","Где-то в крутом месте"));
 
-       personService.addNewPerson(new PersonDto(0,"Антон","Иванов","m",new Date(1980,05,15),cd));
 
 
     }
 
     private void seedData() throws IOException {
-        //add data
+        ContactDto cd = contactService.addNewContact(new ContactDto(0,"+8925","Где-то в крутом месте"));
+
+        personService.addNewPerson(new PersonDto(0,"Антон","Иванов","m",new Date(1980,05,15),cd));
     }
 
 }
