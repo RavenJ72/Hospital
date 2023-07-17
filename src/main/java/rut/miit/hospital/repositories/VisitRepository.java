@@ -11,7 +11,11 @@ import java.util.List;
 
 @Repository
 public interface VisitRepository extends JpaRepository<Visit,Integer> {
-    List<Visit> findVisitsByPatientOrderByVisitDateAsc(Patient patient);
+    List<Visit> findVisitsByPatientIdOrderByVisitDateAsc(Integer patientId);
 
-    List<Visit> findVisitsByVisitDateBetweenAndDoctorOrderByVisitDateAsc(Date startDate, Date endDate, Doctor doctor);
+    List<Visit> findVisitsByDoctorIdOrderByVisitDateAsc(Integer doctorId);
+
+    void deleteVisitByDoctorIdAndPatientIdAndVisitDate(Integer doctorId, Integer patientId, Date visitDate);
+
+    List<Visit> findVisitsByVisitDateBetweenAndDoctorIdOrderByVisitDateAsc(Date startDate, Date endDate, Integer doctorId);
 }

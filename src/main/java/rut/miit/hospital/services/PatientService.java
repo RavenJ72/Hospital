@@ -5,11 +5,10 @@ import rut.miit.hospital.dtos.PatientDto;
 import java.util.List;
 
 public interface PatientService<ID>{
-    ContactDto findContactByPatientId(Integer patientId);
-
     PatientDto addNewPatient(PatientDto patientDto);
-
+    PatientDto updatePatient(ID patientId, PatientDto patientDto);
+    void deletePatient(ID patientId);
+    PatientDto getPatientById(ID patientId);
     List<PatientDto> getAllPatients();
-
-    PatientDto findPatientById(ID id);
+    ContactDto findContactByPatientId(ID patientId);
 }

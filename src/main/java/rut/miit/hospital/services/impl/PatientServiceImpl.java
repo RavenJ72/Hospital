@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.ContactDto;
 import rut.miit.hospital.dtos.PatientDto;
-import rut.miit.hospital.dtos.PersonDto;
 import rut.miit.hospital.models.Patient;
-import rut.miit.hospital.models.Person;
 import rut.miit.hospital.repositories.PatientRepository;
 import rut.miit.hospital.services.PatientService;
 
