@@ -23,10 +23,6 @@ public class PatientServiceImpl implements PatientService<Integer> {
     @Autowired
     private ModelMapper modelMapper;
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 
     @Override
     public ContactDto findContactByPatientId(Integer patientId) {

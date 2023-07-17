@@ -10,5 +10,7 @@ import lombok.Setter;
 @Setter
 public class PatientDto {
     public Integer id;
+
+    public PersonDto personDto;
     public String insuranceNumber;
 }
