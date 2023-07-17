@@ -39,8 +39,11 @@ public class PatientServiceImpl implements PatientService<Integer> {
 
 
     @Override
-    public PatientDto updatePatient(Integer patientId, PatientDto patientDto) {
-        return null;
+    public PatientDto updateInsuranceNumber(Integer patientId, String insuranceNumber) {
+        Patient newPatient = patientRepository.findById(patientId).orElseThrow();
+        newPatient.setInsuranceNumber(insuranceNumber);
+        patientRepository.save(newPatient);
+        return modelMapper.map(newPatient, PatientDto.class);
     }
 
     @Override

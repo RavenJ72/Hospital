@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
 @Getter
+@Setter
 @AllArgsConstructor
 @Table(name = "patients")
 public class Patient {
@@ -22,11 +24,6 @@ public class Patient {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;
-
-    private void setInsuranceNumber(String insuranceNumber) {
-        this.insuranceNumber = insuranceNumber;
-
-    }
 
     private void setId(Integer id) {
         this.id = id;

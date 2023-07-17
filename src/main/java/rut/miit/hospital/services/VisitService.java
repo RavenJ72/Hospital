@@ -10,7 +10,7 @@ import java.util.List;
 public interface VisitService<ID>{
     List<VisitDto> findVisitsByPatientId(ID patientId);
 
-    List<DoctorDetailsDto> findVisitsByDoctorId(ID doctorId);
+    List<VisitDto> findVisitsByDoctorId(ID doctorId);
 
     List<VisitDto> findVisitsByDateAndDoctorId(Date startDate, Date endDate, ID id);
 

@@ -29,8 +29,19 @@ public class ContactServiceImpl implements ContactService<Integer> {
     }
 
     @Override
-    public ContactDto updateContact(Integer contactId, ContactDto contactDto) {
-        return null;
+    public ContactDto updateAddress(Integer contactId, String address) {
+        Contact newContact = contactRepository.findById(contactId).orElseThrow();
+        newContact.setAddress(address);
+        contactRepository.save(newContact);
+        return modelMapper.map(newContact, ContactDto.class);
+    }
+
+    @Override
+    public ContactDto updatePhone(Integer contactId, String phone) {
+        Contact newContact = contactRepository.findById(contactId).orElseThrow();
+        newContact.setPhone(phone);
+        contactRepository.save(newContact);
+        return modelMapper.map(newContact, ContactDto.class);
     }
 
     @Override

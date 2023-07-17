@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PatientService<ID>{
     PatientDto addNewPatient(PatientDto patientDto);
-    PatientDto updatePatient(ID patientId, PatientDto patientDto);
+    PatientDto updateInsuranceNumber(ID patientId, String insuranceNumber);
     void deletePatient(ID patientId);
     PatientDto getPatientById(ID patientId);
     List<PatientDto> getAllPatients();

@@ -10,6 +10,7 @@ import rut.miit.hospital.models.Doctor;
 import rut.miit.hospital.repositories.DoctorRepository;
 import rut.miit.hospital.services.DoctorService;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,8 +40,19 @@ public class DoctorServiceImpl implements DoctorService<Integer> {
     }
 
     @Override
-    public DoctorDetailsDto updateDoctor(Integer doctorId, DoctorDetailsDto doctorDetailsDto) {
-        return null;
+    public DoctorDetailsDto updateSpecialization(Integer doctorId, String specialization) {
+        Doctor newDoctor = doctorRepository.findById(doctorId).orElseThrow();
+        newDoctor.setSpecialization(specialization);
+        doctorRepository.save(newDoctor);
+        return modelMapper.map(newDoctor, DoctorDetailsDto.class);
+    }
+
+    @Override
+    public DoctorDetailsDto updateSalary(Integer doctorId, BigDecimal salary) {
+        Doctor newDoctor = doctorRepository.findById(doctorId).orElseThrow();
+        newDoctor.setSalary(salary);
+        doctorRepository.save(newDoctor);
+        return modelMapper.map(newDoctor, DoctorDetailsDto.class);
     }
 
     @Override
