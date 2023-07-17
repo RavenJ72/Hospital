@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.VisitDto;
+import rut.miit.hospital.dtos.VisitOutPutDto;
 import rut.miit.hospital.models.Visit;
 import rut.miit.hospital.repositories.VisitRepository;
 import rut.miit.hospital.services.VisitService;
@@ -21,23 +22,23 @@ public class VisitServiceImpl implements VisitService<Integer>{
     private VisitRepository visitRepository;
 
     @Override
-    public List<VisitDto> findVisitsByPatientId(Integer patientId) {
+    public List<VisitOutPutDto> findVisitsByPatientId(Integer patientId) {
         return visitRepository.findVisitsByPatientIdOrderByVisitDateAsc(patientId)
-                .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
+                .stream().map(visit -> modelMapper.map(visit, VisitOutPutDto.class))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<VisitDto> findVisitsByDoctorId(Integer doctorId) {
+    public List<VisitOutPutDto> findVisitsByDoctorId(Integer doctorId) {
         return visitRepository.findVisitsByDoctorIdOrderByVisitDateAsc(doctorId)
-                .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
+                .stream().map(visit -> modelMapper.map(visit, VisitOutPutDto.class))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<VisitDto> findVisitsByDateIntervalAndDoctorId(Date startDate, Date endDate, Integer doctorId) {
+    public List<VisitOutPutDto> findVisitsByDateIntervalAndDoctorId(Date startDate, Date endDate, Integer doctorId) {
         return visitRepository.findVisitsByVisitDateBetweenAndDoctorIdOrderByVisitDateAsc(startDate,endDate,doctorId)
-                .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
+                .stream().map(visit -> modelMapper.map(visit, VisitOutPutDto.class))
                 .collect(Collectors.toList());
     }
 
@@ -67,15 +68,15 @@ public class VisitServiceImpl implements VisitService<Integer>{
     }
 
     @Override
-    public List<VisitDto> getAllVisits() {
-        return visitRepository.findAll().stream().map(p -> modelMapper.map(p,VisitDto.class))
+    public List<VisitOutPutDto> getAllVisits() {
+        return visitRepository.findAll().stream().map(p -> modelMapper.map(p,VisitOutPutDto.class))
                 .collect(Collectors.toList());
 
     }
 
     @Override
-    public List<VisitDto> getAllVisitsByDate(Date date) {
-        return visitRepository.findAllByVisitDate(date).stream().map(e -> modelMapper.map(e,VisitDto.class)).collect(Collectors.toList());
+    public List<VisitOutPutDto> getAllVisitsByDate(Date date) {
+        return visitRepository.findAllByVisitDate(date).stream().map(e -> modelMapper.map(e,VisitOutPutDto.class)).collect(Collectors.toList());
     }
 }
 

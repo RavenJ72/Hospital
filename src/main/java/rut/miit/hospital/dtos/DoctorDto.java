@@ -16,6 +16,6 @@ public class DoctorDto {
     public Integer id;
     public String firstName;
     public String lastName;
-    private BigDecimal salary;
+    public BigDecimal salary;
     public String specialization;
 }

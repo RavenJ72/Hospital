@@ -1,9 +1,6 @@
 package rut.miit.hospital.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -11,11 +8,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class DoctorDetailsDto {
     public Integer id;
     public PersonDto personDto;
-    private String licenseNumber;
-    private BigDecimal salary;
+    public String licenseNumber;
+    public BigDecimal salary;
     public String specialization;
 }
 

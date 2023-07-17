@@ -1,10 +1,7 @@
 package rut.miit.hospital.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 
@@ -13,6 +10,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Table(name = "persons")
 public class Person {
     @Id

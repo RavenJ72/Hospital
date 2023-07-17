@@ -31,11 +31,11 @@ public class Visit{
 
     @Column(name = "symptoms", columnDefinition = "text")
     private String symptoms;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 

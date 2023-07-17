@@ -1,14 +1,16 @@
 package rut.miit.hospital.init;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import rut.miit.hospital.dtos.*;
+import rut.miit.hospital.models.Doctor;
+import rut.miit.hospital.models.Person;
 import rut.miit.hospital.services.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -19,12 +21,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private PatientService patientService;
     private VisitService visitService;
 
-    public CommandLineRunnerImpl(PersonService personService, ContactService contactService, DoctorService doctorService, PatientService patientService, VisitService visitService) {
+    private ModelMapper modelMapper;
+
+    public CommandLineRunnerImpl(PersonService personService, ContactService contactService, DoctorService doctorService, PatientService patientService, VisitService visitService, ModelMapper modelMapper) {
         this.personService = personService;
         this.contactService = contactService;
         this.doctorService = doctorService;
         this.patientService = patientService;
         this.visitService = visitService;
+        this.modelMapper = modelMapper;
     }
 
 
@@ -60,6 +65,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         ContactDto patientContact15 = new ContactDto(0, "+19012345", "Chelsea 99, London");
 
 
+
+
+
         PersonDto doctorPerson1 = new PersonDto(0, "John", "Smith", "m", new Date(80, 4, 15), doctorContact1);
         PersonDto doctorPerson2 = new PersonDto(0, "Robert", "Johnson", "m", new Date(78, 6, 30), doctorContact2);
         PersonDto doctorPerson3 = new PersonDto(0, "James", "Brown", "m", new Date(82, 3, 2), doctorContact3);
@@ -82,12 +90,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         PersonDto patientPerson14 = new PersonDto(0, "Emma", "Martin", "f", new Date(93, 4, 30), patientContact14);
         PersonDto patientPerson15 = new PersonDto(0, "Grace", "Thompson", "f", new Date(90, 11, 1), patientContact15);
 
+
+
         doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson1, "LIC00001", new BigDecimal(1000), "Pediatrician"));
         doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson2, "LIC00002", new BigDecimal(1200), "Cardiologist"));
         doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson3, "LIC00003", new BigDecimal(1100), "Neurologist"));
         doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson4, "LIC00004", new BigDecimal(1500), "Orthopedist"));
         doctorService.addNewDoctor(new DoctorDetailsDto(0, doctorPerson5, "LIC00005", new BigDecimal(900), "Oncologist"));
-
 
         patientService.addNewPatient(new PatientDetailsDto(0, patientPerson1, "INS123456789"));
         patientService.addNewPatient(new PatientDetailsDto(0, patientPerson2, "INS987654321"));
@@ -137,6 +146,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         visitService.addNewVisit(new VisitDto(0, "Osteoporosis", new Date(123, 1, 22), "Back Pain, Loss of Height", doctorService.getDoctorById(4), patientService.getPatientById(12)));
         visitService.addNewVisit(new VisitDto(0, "Fracture", new Date(123, 1, 24), "Severe Pain, Swelling", doctorService.getDoctorById(4), patientService.getPatientById(13)));
         visitService.addNewVisit(new VisitDto(0, "Fracture", new Date(123, 1, 26), "Inability to Move the Limb, Deformity", doctorService.getDoctorById(4), patientService.getPatientById(14)));
+
+        visitService.getAllVisitsByDate(Date.valueOf("2023-02-02")).stream().forEach(System.out::println);
 
     }
 

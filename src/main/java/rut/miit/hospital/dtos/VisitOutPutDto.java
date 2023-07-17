@@ -1,22 +1,22 @@
 package rut.miit.hospital.dtos;
 
 import lombok.*;
-import java.sql.Date;
 
+import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
-public class VisitDto {
+public class VisitOutPutDto {
     public Integer id;
     public String diagnosis;
     public Date visitDate;
     public String symptoms;
 
-    public DoctorDetailsDto doctor;
+    public String firstNameDoctor;
+    public String lastNameDoctor;
 
-    public PatientDetailsDto patient;
+    public String firstNamePatient;
+    public String lastNamePatient;
 }
-
-

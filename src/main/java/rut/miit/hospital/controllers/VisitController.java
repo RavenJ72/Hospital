@@ -32,8 +32,8 @@ public class VisitController {
     }
 
     @GetMapping("/getAllByDate/{date}")
-    Iterable<VisitDto> getAllVisitsByDate(@PathVariable Date date){
-        return visitService.getAllVisitsByDate(date);
+    Iterable<VisitDto> getAllVisitsByDate(@PathVariable String date){
+        return visitService.getAllVisitsByDate(Date.valueOf(date));
     }
 
     @GetMapping("/getAllByInterval/{dateStart}/{dateEnd}/{id}")

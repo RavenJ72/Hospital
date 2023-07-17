@@ -8,7 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import rut.miit.hospital.dtos.DoctorDto;
 import rut.miit.hospital.dtos.PatientDto;
-import rut.miit.hospital.models.Doctor;
+import rut.miit.hospital.dtos.VisitOutPutDto;
+import rut.miit.hospital.models.*;
 import rut.miit.hospital.models.Patient;
 
 @SpringBootApplication
@@ -28,8 +29,16 @@ public class HospitalApplication {
         typeMapDoctor.addMappings(m->m.map(src -> src.getPerson().getLastName(),DoctorDto::setLastName));
 
         TypeMap<Patient, PatientDto> typeMapPatient = modelMapper.createTypeMap(Patient.class,PatientDto.class);
-        typeMapDoctor.addMappings(m->m.map(src -> src.getPerson().getFirstName(),DoctorDto::setFirstName));
-        typeMapDoctor.addMappings(m->m.map(src -> src.getPerson().getLastName(),DoctorDto::setLastName));
+        typeMapPatient.addMappings(m->m.map(src -> src.getPerson().getFirstName(),PatientDto::setFirstName));
+        typeMapPatient.addMappings(m->m.map(src -> src.getPerson().getLastName(),PatientDto::setLastName));
+
+        TypeMap<Visit, VisitOutPutDto> typeMapVisitOut = modelMapper.createTypeMap(Visit.class,VisitOutPutDto.class);
+
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getDoctor().getPerson().getFirstName(),VisitOutPutDto::setFirstNameDoctor));
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getDoctor().getPerson().getLastName(),VisitOutPutDto::setLastNameDoctor));
+
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getPatient().getPerson().getFirstName(),VisitOutPutDto::setFirstNamePatient));
+        typeMapVisitOut.addMappings(m->m.map(src -> src.getPatient().getPerson().getLastName(),VisitOutPutDto::setLastNamePatient));
 
         return modelMapper;
     }

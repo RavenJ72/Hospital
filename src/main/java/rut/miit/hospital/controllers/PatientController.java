@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import rut.miit.hospital.dtos.*;
 import rut.miit.hospital.services.PatientService;
 
-@Repository
+@RestController
 @RequestMapping("/patient")
 public class PatientController {
 
