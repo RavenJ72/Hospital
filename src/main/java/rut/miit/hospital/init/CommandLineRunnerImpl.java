@@ -50,7 +50,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
         visitService.addNewVisit(visitDto);
 
-
         VisitDto visitDto2 = new VisitDto(0,"головная боль",new Date(1900,01,02),"дичайший мега понос",doctorService.getDoctorById(1),patientService.getPatientById(1));
 
         visitService.addNewVisit(visitDto2);

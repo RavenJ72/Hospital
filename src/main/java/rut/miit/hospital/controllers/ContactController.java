@@ -12,7 +12,7 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @GetMapping("/")
+    @GetMapping("/getAll")
     Iterable<ContactDto> getAll(){
         return contactService.getAllContacts();
     }
@@ -28,17 +28,17 @@ public class ContactController {
     }
 
     @DeleteMapping("/deleteById/{id}")
-    void deleteContactById(@RequestParam Integer id){
+    void deleteContactById(@PathVariable Integer id){
         contactService.deleteContact(id);
     }
 
     @PutMapping("/updateAddress/{id}/{address}")
-    ContactDto updateAddressById(@RequestParam Integer id,@RequestParam String address){
+    ContactDto updateAddressById(@PathVariable Integer id,@PathVariable String address){
         return contactService.updateAddress(id,address);
     }
 
     @PutMapping("/updatePhone/{id}/{phone}")
-    ContactDto updatePhoneById(@RequestParam Integer id,@RequestParam String phone){
+    ContactDto updatePhoneById(@PathVariable Integer id,@PathVariable String phone){
         return contactService.updatePhone(id,phone);
     }
 
