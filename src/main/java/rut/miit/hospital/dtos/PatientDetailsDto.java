@@ -7,10 +7,9 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class PatientDto {
-    public Integer id;
-    public String firstName;
-    public String lastName;
-    public String insuranceNumber;
+public class PatientDetailsDto {
 
+    public Integer id;
+    public PersonDto personDto;
+    public String insuranceNumber;
 }

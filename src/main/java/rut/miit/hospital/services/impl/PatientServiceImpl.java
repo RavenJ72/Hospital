@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.ContactDto;
+import rut.miit.hospital.dtos.PatientDetailsDto;
 import rut.miit.hospital.dtos.PatientDto;
 import rut.miit.hospital.models.Patient;
 import rut.miit.hospital.repositories.PatientRepository;
@@ -28,8 +29,8 @@ public class PatientServiceImpl implements PatientService<Integer> {
     }
 
     @Override
-    public PatientDto addNewPatient(PatientDto patientDto) {
-        return modelMapper.map(patientRepository.save(modelMapper.map(patientDto, Patient.class)), PatientDto.class);
+    public PatientDetailsDto addNewPatient(PatientDetailsDto patientDetailsDto) {
+        return modelMapper.map(patientRepository.save(modelMapper.map(patientDetailsDto, Patient.class)), PatientDetailsDto.class);
     }
 
     @Override
@@ -39,11 +40,11 @@ public class PatientServiceImpl implements PatientService<Integer> {
 
 
     @Override
-    public PatientDto updateInsuranceNumber(Integer patientId, String insuranceNumber) {
+    public PatientDetailsDto updateInsuranceNumber(Integer patientId, String insuranceNumber) {
         Patient newPatient = patientRepository.findById(patientId).orElseThrow();
         newPatient.setInsuranceNumber(insuranceNumber);
         patientRepository.save(newPatient);
-        return modelMapper.map(newPatient, PatientDto.class);
+        return modelMapper.map(newPatient, PatientDetailsDto.class);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class PatientServiceImpl implements PatientService<Integer> {
     }
 
     @Override
-    public PatientDto getPatientById(Integer patientId) {
-        return modelMapper.map(patientRepository.findById(patientId).orElseThrow(), PatientDto.class);
+    public PatientDetailsDto getPatientById(Integer patientId) {
+        return modelMapper.map(patientRepository.findById(patientId).orElseThrow(), PatientDetailsDto.class);
     }
 }

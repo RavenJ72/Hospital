@@ -17,8 +17,10 @@ import java.sql.Date;
 @Setter
 @Table(name = "visits")
 public class Visit{
-    @EmbeddedId
-    private VisitKey id;
+    @Id
+    @Column(name = "visit_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "diagnosis",columnDefinition = "text")
     private String diagnosis;
@@ -30,17 +32,17 @@ public class Visit{
     @Column(name = "symptoms", columnDefinition = "text")
     private String symptoms;
     @ManyToOne(cascade = CascadeType.ALL)
-    @MapsId("doctorId")
+    //@MapsId("doctorId")
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @MapsId("patientId")
+    //@MapsId("patientId")
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
 
-    private void setId(VisitKey id) {
+    private void setId(Integer id) {
         this.id = id;
     }
 

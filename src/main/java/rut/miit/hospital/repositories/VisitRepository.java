@@ -20,4 +20,6 @@ public interface VisitRepository extends JpaRepository<Visit,Integer> {
     Visit findVisitByPatientIdAndDoctorIdAndVisitDate(Integer patientId, Integer doctorId, Date visitDate);
 
     List<Visit> findVisitsByVisitDateBetweenAndDoctorIdOrderByVisitDateAsc(Date startDate, Date endDate, Integer doctorId);
+
+    List<Visit> findAllByVisitDate(Date date);
 }

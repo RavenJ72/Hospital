@@ -25,4 +25,8 @@ public interface VisitService<ID>{
     VisitDto updateVisitDiagnosis(ID patientId, ID doctorId, Date visitDate, String diagnosis);
 
     List<VisitDto> getAllVisits();
+
+    List<VisitDto> getAllVisitsByDate(Date date);
+
+
 }

@@ -42,16 +42,33 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         PersonDto pdDoctor = new PersonDto(0,"Антон","Иванов","m",new Date(1980,05,15),cdDoctor);
         PersonDto pdPatient = new PersonDto(0,"Галина","Сергеевна","w",new Date(1976,01,01),cdPatient);
 
+
+        PatientDetailsDto patientDetailsDto = new PatientDetailsDto(0,pdPatient,"abc123");
+        DoctorDetailsDto doctorDetailsDto = new DoctorDetailsDto(0,pdDoctor,"00000",new BigDecimal(1000),"pediatrician");
+
+        VisitDto visitDto = new VisitDto(0,"amnesia",new Date(2023,01,02),"нарушения ориентации",doctorDetailsDto,patientDetailsDto);
+
+        visitService.addNewVisit(visitDto);
+
+
+        VisitDto visitDto2 = new VisitDto(0,"головная боль",new Date(1900,01,02),"дичайший мега понос",doctorService.getDoctorById(1),patientService.getPatientById(1));
+
+        visitService.addNewVisit(visitDto2);
+
+
+
+
+
+
+
+
+
         //doctorService.addNewDoctor(new DoctorDto(0,pdDoctor,"123",new BigDecimal(1000),"pediatrician"));
         //patientService.addNewPatient(new PatientDto(0,pdPatient,"ABC123"));
+        //visitService.addNewVisit(new VisitDto("amnesia",new Date(2023,01,02),"нарушения ориентации",new DoctorDetailsDto(0,pdDoctor,"123",new BigDecimal(1000),"pediatrician"),new PatientDto(0,pdPatient,"ABC123")));
 
 
-        visitService.addNewVisit(new VisitDto("amnesia",new Date(2023,01,02),"нарушения ориентации",new DoctorDetailsDto(0,pdDoctor,"123",new BigDecimal(1000),"pediatrician"),new PatientDto(0,pdPatient,"ABC123")));
 
-
-        PatientDto patientDto = patientService.findPatientById(1);
-
-        visitService.findVisitsByPatient(patientDto).stream().forEach(System.out::println);
 
 
 

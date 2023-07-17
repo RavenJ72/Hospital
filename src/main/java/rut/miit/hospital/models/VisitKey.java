@@ -30,4 +30,5 @@ public class VisitKey implements Serializable {
     private void setPatientId(Integer patientId) {
         this.patientId = patientId;
     }
+
 }

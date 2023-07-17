@@ -1,30 +1,21 @@
 package rut.miit.hospital.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class VisitDto {
+    public Integer id;
 
     public String diagnosis;
     public Date visitDate;
     public String symptoms;
     private DoctorDetailsDto doctor;
-    private PatientDto patient;
+    private PatientDetailsDto patient;
 
-    @Override
-    public String toString() {
-        return "VisitDto{" +
-                "diagnosis='" + diagnosis + '\'' +
-                ", visitDate=" + visitDate +
-                ", symptoms='" + symptoms + '\'' +
-                ", doctor=" + doctor +
-                ", patient=" + patient +
-                '}';
-    }
+
 }
