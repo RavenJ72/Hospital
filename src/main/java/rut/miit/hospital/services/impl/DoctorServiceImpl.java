@@ -38,4 +38,9 @@ public class DoctorServiceImpl implements DoctorService<Integer> {
     public List<DoctorDto> getAllDoctors() {
         return doctorRepository.findAll().stream().map(p -> modelMapper.map(p, DoctorDto.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public DoctorDto findDoctorById(Integer doctorId) {
+        return modelMapper.map(doctorRepository.findById(doctorId).orElseThrow(),DoctorDto.class);
+    }
 }

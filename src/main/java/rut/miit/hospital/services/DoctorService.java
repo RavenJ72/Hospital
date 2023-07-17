@@ -5,9 +5,11 @@ import rut.miit.hospital.dtos.DoctorDto;
 import java.util.List;
 
 public interface DoctorService<ID>{
-    ContactDto findContactByDoctorId(Integer doctorId);
+    ContactDto findContactByDoctorId(ID doctorId);
 
     DoctorDto addNewDoctor(DoctorDto doctorDto);
 
     List<DoctorDto> getAllDoctors();
+
+    DoctorDto findDoctorById(ID id);
 }

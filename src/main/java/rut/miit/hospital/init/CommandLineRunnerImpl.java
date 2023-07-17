@@ -50,10 +50,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         PersonDto pdPatient = new PersonDto(0,"Галина","Сергеевна","w",new Date(1976,01,01),cdPatient);
 
         doctorService.addNewDoctor(new DoctorDto(0,pdDoctor,"123",new BigDecimal(1000),"pediatrician"));
-
         patientService.addNewPatient(new PatientDto(0,pdPatient,"ABC123"));
-
-
 
 
 

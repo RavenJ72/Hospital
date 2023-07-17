@@ -10,4 +10,6 @@ public interface PatientService<ID>{
     PatientDto addNewPatient(PatientDto patientDto);
 
     List<PatientDto> getAllPatients();
+
+    PatientDto findPatientById(ID id);
 }
