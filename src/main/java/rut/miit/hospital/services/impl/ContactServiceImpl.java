@@ -22,9 +22,8 @@ public class ContactServiceImpl implements ContactService<Integer> {
     private ModelMapper modelMapper;
 
     @Override
-    public ContactDto addNewContact(ContactDto contact) {
-        Contact c = modelMapper.map(contact,Contact.class);
-        return modelMapper.map(contactRepository.save(c),ContactDto.class);
+    public ContactDto addNewContact(ContactDto contactDto) {
+        return modelMapper.map(contactRepository.save(modelMapper.map(contactDto,Contact.class)),ContactDto.class);
     }
 
     @Override
