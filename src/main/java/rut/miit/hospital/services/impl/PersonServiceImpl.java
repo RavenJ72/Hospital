@@ -21,6 +21,24 @@ public class PersonServiceImpl implements PersonService<Integer> {
 
 
     @Override
+    public PersonDto updateLastName(Integer personId, String lastName) {
+        Person newPerson = personRepository.findById(personId).orElseThrow();
+        newPerson.setLastName(lastName);
+        personRepository.save(newPerson);
+        return modelMapper.map(newPerson, PersonDto.class);
+    }
+
+    @Override
+    public void deletePerson(Integer personId) {
+
+    }
+
+    @Override
+    public PersonDto getPersonById(Integer personId) {
+        return null;
+    }
+
+    @Override
     public PersonDto addNewPerson(PersonDto personDto) {
         return modelMapper.map( personRepository.save(modelMapper.map(personDto,Person.class)),PersonDto.class);
     }

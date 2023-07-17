@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PersonService<ID> {
     PersonDto addNewPerson(PersonDto personDto);
-    PersonDto updatePerson(ID personId, PersonDto personDto);
+    PersonDto updateLastName(ID personId, String lastName);
     void deletePerson(ID personId);
     PersonDto getPersonById(ID personId);
     List<PersonDto> getAllPersons();

@@ -39,9 +39,6 @@ public class Visit{
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    private void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
 
     private void setId(VisitKey id) {
         this.id = id;

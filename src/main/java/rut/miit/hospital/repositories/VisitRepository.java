@@ -17,5 +17,7 @@ public interface VisitRepository extends JpaRepository<Visit,Integer> {
 
     void deleteVisitByDoctorIdAndPatientIdAndVisitDate(Integer doctorId, Integer patientId, Date visitDate);
 
+    Visit findVisitByPatientIdAndDoctorIdAndVisitDate(Integer patientId, Integer doctorId, Date visitDate);
+
     List<Visit> findVisitsByVisitDateBetweenAndDoctorIdOrderByVisitDateAsc(Date startDate, Date endDate, Integer doctorId);
 }

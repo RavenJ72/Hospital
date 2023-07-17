@@ -25,16 +25,44 @@ public class VisitServiceImpl implements VisitService<Integer>{
     private VisitRepository visitRepository;
 
     @Override
-    public List<VisitDto> findVisitsByPatient(PatientDto patientDto) {
-        return visitRepository.findVisitsByPatientOrderByVisitDateAsc(modelMapper.map(patientDto, Patient.class))
-                        .stream().map(e -> modelMapper.map(e, VisitDto.class)).collect(Collectors.toList());
+    public List<VisitDto> findVisitsByPatientId(Integer patientId) {
+        return visitRepository.findVisitsByPatientIdOrderByVisitDateAsc(patientId)
+                .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<VisitDto> findVisitsByDateAndDoctor(Date startDate, Date endDate, DoctorDetailsDto doctorDetailsDto) {
-        return visitRepository.findVisitsByVisitDateBetweenAndDoctorOrderByVisitDateAsc(startDate,endDate,modelMapper.map(doctorDetailsDto, Doctor.class))
-                .stream().map(e -> modelMapper.map(e,VisitDto.class))
+    public List<VisitDto> findVisitsByDoctorId(Integer doctorId) {
+        return visitRepository.findVisitsByPatientIdOrderByVisitDateAsc(doctorId)
+                .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<VisitDto> findVisitsByDateIntervalAndDoctorId(Date startDate, Date endDate, Integer doctorId) {
+        return visitRepository.findVisitsByVisitDateBetweenAndDoctorIdOrderByVisitDateAsc(startDate,endDate,doctorId)
+                .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public VisitDto findVisit(Integer patientId, Integer doctorId, Date visitDate) {
+        return modelMapper
+                .map(visitRepository.findVisitByPatientIdAndDoctorIdAndVisitDate(patientId,doctorId,visitDate),
+                        VisitDto.class);
+    }
+
+    @Override
+    public void deleteVisit(Integer doctorId, Integer patientId, Date visitDate) {
+        visitRepository.deleteVisitByDoctorIdAndPatientIdAndVisitDate(doctorId, patientId, visitDate);
+    }
+
+    @Override
+    public VisitDto updateVisitDiagnosis(Integer patientId, Integer doctorId, Date visitDate, String diagnosis) {
+        Visit newVisit = modelMapper.map(findVisit(patientId, doctorId, visitDate), Visit.class);
+        newVisit.setDiagnosis(diagnosis);
+        visitRepository.save(newVisit);
+        return modelMapper.map(newVisit, VisitDto.class);
     }
 
     @Override
