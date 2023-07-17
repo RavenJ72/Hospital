@@ -46,7 +46,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         //patientService.addNewPatient(new PatientDto(0,pdPatient,"ABC123"));
 
 
-        visitService.addNewVisit(new VisitDto("amnesia",new Date(2023,01,02),"нарушения ориентации",new DoctorDto(0,pdDoctor,"123",new BigDecimal(1000),"pediatrician"),new PatientDto(0,pdPatient,"ABC123")));
+        visitService.addNewVisit(new VisitDto("amnesia",new Date(2023,01,02),"нарушения ориентации",new DoctorDetailsDto(0,pdDoctor,"123",new BigDecimal(1000),"pediatrician"),new PatientDto(0,pdPatient,"ABC123")));
 
 
         PatientDto patientDto = patientService.findPatientById(1);

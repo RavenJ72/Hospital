@@ -14,7 +14,7 @@ public class VisitDto {
     public String diagnosis;
     public Date visitDate;
     public String symptoms;
-    private DoctorDto doctor;
+    private DoctorDetailsDto doctor;
     private PatientDto patient;
 
     @Override

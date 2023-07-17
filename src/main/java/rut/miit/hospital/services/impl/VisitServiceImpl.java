@@ -3,7 +3,7 @@ package rut.miit.hospital.services.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rut.miit.hospital.dtos.DoctorDto;
+import rut.miit.hospital.dtos.DoctorDetailsDto;
 import rut.miit.hospital.dtos.PatientDto;
 import rut.miit.hospital.dtos.VisitDto;
 import rut.miit.hospital.models.Doctor;
@@ -31,8 +31,8 @@ public class VisitServiceImpl implements VisitService<Integer>{
     }
 
     @Override
-    public List<VisitDto> findVisitsByDateAndDoctor(Date startDate, Date endDate, DoctorDto doctorDto) {
-        return visitRepository.findVisitsByVisitDateBetweenAndDoctorOrderByVisitDateAsc(startDate,endDate,modelMapper.map(doctorDto, Doctor.class))
+    public List<VisitDto> findVisitsByDateAndDoctor(Date startDate, Date endDate, DoctorDetailsDto doctorDetailsDto) {
+        return visitRepository.findVisitsByVisitDateBetweenAndDoctorOrderByVisitDateAsc(startDate,endDate,modelMapper.map(doctorDetailsDto, Doctor.class))
                 .stream().map(e -> modelMapper.map(e,VisitDto.class))
                 .collect(Collectors.toList());
     }

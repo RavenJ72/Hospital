@@ -1,15 +1,10 @@
 package rut.miit.hospital;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeMap;
 import org.modelmapper.config.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import rut.miit.hospital.dtos.DoctorDto;
-import rut.miit.hospital.models.Doctor;
-
-import java.lang.reflect.Type;
 
 @SpringBootApplication
 public class HospitalApplication {
