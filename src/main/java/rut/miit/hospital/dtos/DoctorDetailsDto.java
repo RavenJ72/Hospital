@@ -18,3 +18,4 @@ public class DoctorDetailsDto {
     private BigDecimal salary;
     public String specialization;
 }
+

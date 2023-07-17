@@ -28,5 +28,5 @@ public interface VisitService<ID>{
 
     List<VisitDto> getAllVisitsByDate(Date date);
 
-
 }
+

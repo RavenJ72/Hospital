@@ -23,3 +23,4 @@ public interface VisitRepository extends JpaRepository<Visit,Integer> {
 
     List<Visit> findAllByVisitDate(Date date);
 }
+

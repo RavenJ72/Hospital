@@ -78,3 +78,4 @@ public class VisitServiceImpl implements VisitService<Integer>{
         return visitRepository.findAllByVisitDate(date).stream().map(e -> modelMapper.map(e,VisitDto.class)).collect(Collectors.toList());
     }
 }
+

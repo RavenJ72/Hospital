@@ -30,8 +30,6 @@ public class Doctor {
     @Column(name = "license_number", length = 20, nullable = false)
     private String licenseNumber;
 
-
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id", referencedColumnName = "person_id")
     private Person person;

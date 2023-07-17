@@ -8,8 +8,8 @@ import lombok.*;
 @Setter
 @ToString
 public class PatientDetailsDto {
-
     public Integer id;
     public PersonDto personDto;
     public String insuranceNumber;
 }
+

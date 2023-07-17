@@ -12,3 +12,6 @@ public interface PersonService<ID> {
     PersonDto getPersonById(ID personId);
     List<PersonDto> getAllPersons();
 }
+
+
+

@@ -12,5 +12,5 @@ public class PatientDto {
     public String firstName;
     public String lastName;
     public String insuranceNumber;
-
 }
+
