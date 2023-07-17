@@ -17,4 +17,14 @@ public class VisitDto {
     private DoctorDto doctor;
     private PatientDto patient;
 
+    @Override
+    public String toString() {
+        return "VisitDto{" +
+                "diagnosis='" + diagnosis + '\'' +
+                ", visitDate=" + visitDate +
+                ", symptoms='" + symptoms + '\'' +
+                ", doctor=" + doctor +
+                ", patient=" + patient +
+                '}';
+    }
 }

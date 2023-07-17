@@ -13,4 +13,13 @@ public class PatientDto {
 
     public PersonDto personDto;
     public String insuranceNumber;
+
+    @Override
+    public String toString() {
+        return "PatientDto{" +
+                "id=" + id +
+                ", personDto=" + personDto +
+                ", insuranceNumber='" + insuranceNumber + '\'' +
+                '}';
+    }
 }

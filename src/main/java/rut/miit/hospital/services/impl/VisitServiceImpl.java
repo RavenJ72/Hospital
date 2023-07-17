@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import rut.miit.hospital.dtos.DoctorDto;
 import rut.miit.hospital.dtos.PatientDto;
 import rut.miit.hospital.dtos.VisitDto;
+import rut.miit.hospital.models.Doctor;
 import rut.miit.hospital.models.Patient;
 import rut.miit.hospital.models.Visit;
 import rut.miit.hospital.repositories.VisitRepository;
@@ -25,12 +26,15 @@ public class VisitServiceImpl implements VisitService<Integer>{
 
     @Override
     public List<VisitDto> findVisitsByPatient(PatientDto patientDto) {
-        return null;
+        return visitRepository.findVisitsByPatientOrderByVisitDateAsc(modelMapper.map(patientDto, Patient.class))
+                        .stream().map(e -> modelMapper.map(e, VisitDto.class)).collect(Collectors.toList());
     }
 
     @Override
     public List<VisitDto> findVisitsByDateAndDoctor(Date startDate, Date endDate, DoctorDto doctorDto) {
-        return null;
+        return visitRepository.findVisitsByVisitDateBetweenAndDoctorOrderByVisitDateAsc(startDate,endDate,modelMapper.map(doctorDto, Doctor.class))
+                .stream().map(e -> modelMapper.map(e,VisitDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -40,7 +44,8 @@ public class VisitServiceImpl implements VisitService<Integer>{
 
     @Override
     public List<VisitDto> getAllVisits() {
-        return visitRepository.findAll().stream().map(p -> modelMapper.map(p,VisitDto.class)).collect(Collectors.toList());
+        return visitRepository.findAll().stream().map(p -> modelMapper.map(p,VisitDto.class))
+                .collect(Collectors.toList());
 
     }
 }

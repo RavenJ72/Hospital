@@ -43,7 +43,7 @@ public class Person {
     @OneToOne(mappedBy = "person")
     private Patient patient;
 
-    private void setId(int id) {
+    protected void setId(int id) {
         this.id = id;
     }
 
