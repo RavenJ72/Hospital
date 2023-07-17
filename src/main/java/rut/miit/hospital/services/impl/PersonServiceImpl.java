@@ -30,12 +30,12 @@ public class PersonServiceImpl implements PersonService<Integer> {
 
     @Override
     public void deletePerson(Integer personId) {
-
+        personRepository.deleteById(personId);
     }
 
     @Override
     public PersonDto getPersonById(Integer personId) {
-        return null;
+        return modelMapper.map(personRepository.findById(personId).orElseThrow(), PersonDto.class);
     }
 
     @Override

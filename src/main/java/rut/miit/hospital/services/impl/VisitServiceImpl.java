@@ -33,7 +33,7 @@ public class VisitServiceImpl implements VisitService<Integer>{
 
     @Override
     public List<VisitDto> findVisitsByDoctorId(Integer doctorId) {
-        return visitRepository.findVisitsByPatientIdOrderByVisitDateAsc(doctorId)
+        return visitRepository.findVisitsByDoctorIdOrderByVisitDateAsc(doctorId)
                 .stream().map(visit -> modelMapper.map(visit, VisitDto.class))
                 .collect(Collectors.toList());
     }
