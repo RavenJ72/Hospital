@@ -27,6 +27,6 @@ public class PersonServiceImpl implements PersonService<Integer> {
 
     @Override
     public List<PersonDto> getAllPersons() {
-        return personRepository.findAll().stream().map((p) -> modelMapper.map(p,PersonDto.class)).collect(Collectors.toList());
+        return personRepository.findAll().stream().map(p -> modelMapper.map(p,PersonDto.class)).collect(Collectors.toList());
     }
 }
