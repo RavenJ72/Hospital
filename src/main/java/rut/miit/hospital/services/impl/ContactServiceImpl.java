@@ -29,6 +29,6 @@ public class ContactServiceImpl implements ContactService<Integer> {
 
     @Override
     public List<ContactDto> getAllContacts() {
-        return contactRepository.findAll().stream().map((s) -> modelMapper.map(s, ContactDto.class)).collect(Collectors.toList());
+        return contactRepository.findAll().stream().map((c) -> modelMapper.map(c, ContactDto.class)).collect(Collectors.toList());
     }
 }
